@@ -8,13 +8,11 @@ namespace SmartSchool.API.Models
         {
 
         }
-        public Disciplina(int id, string nome, int professorId, Professor professor)
+        public Disciplina(int id, string nome, int professorId)
         {
             this.Id = id;
             this.Nome = nome;
             this.ProfessorId = professorId;
-            this.Professor = professor;
-
         }
         public int Id { get; set; }
         public string Nome { get; set; }
