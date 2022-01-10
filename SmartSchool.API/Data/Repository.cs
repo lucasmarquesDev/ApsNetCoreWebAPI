@@ -1,6 +1,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SmartSchool.API.Models;
+using SmartSchool.WebAPI.Data;
 
 namespace SmartSchool.API.Data
 {
@@ -86,7 +87,7 @@ namespace SmartSchool.API.Data
 
         public Professor[] GetAllProfessors(bool includeAlunos = false)
         {
-            IQueryable<Professor> query = _context.Professors;
+            IQueryable<Professor> query = _context.Professores;
 
             if (includeAlunos)
             {
@@ -100,7 +101,7 @@ namespace SmartSchool.API.Data
 
         public Professor[] GetAllProfessorByDisciplinaId(int id, bool includeAlunos = false)
         {
-            IQueryable<Professor> query = _context.Professors;
+            IQueryable<Professor> query = _context.Professores;
 
             if (includeAlunos)
             {
@@ -122,7 +123,7 @@ namespace SmartSchool.API.Data
 
         public Professor GetProfessorById(int id, bool includeAlunos = false)
         {
-            IQueryable<Professor> query = _context.Professors;
+            IQueryable<Professor> query = _context.Professores;
 
             if (includeAlunos)
             {

@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SmartSchool.API.Data;
+using SmartSchool.WebAPI.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,12 +32,15 @@ namespace SmartSchool.API
                 x => x.UseSqlite(Configuration.GetConnectionString("Default"))
             );
 
-            //services.AddSingleton<IRepository, Repository>(); *Cria somente 1 instancia e reutiliza a cada request
-            //services.AddTransient<IRepository, Repository>(); *Cria uma nova instancia a cada request
-            services.AddScoped<IRepository, Repository>(); 
-
             services.AddControllers()
                     .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); //Referencia para não dar looping no Json
+
+            //services.AddSingleton<IRepository, Repository>(); *Cria somente 1 instancia e reutiliza a cada request
+            //services.AddTransient<IRepository, Repository>(); *Cria uma nova instancia a cada request
+            
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<IRepository, Repository>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
