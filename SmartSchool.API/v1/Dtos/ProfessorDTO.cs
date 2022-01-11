@@ -1,6 +1,6 @@
 using System;
 
-namespace SmartSchool.API.Dtos
+namespace SmartSchool.API.v1.Dtos
 {
     public class ProfessorDTO
     {

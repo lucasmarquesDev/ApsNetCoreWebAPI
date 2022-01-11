@@ -1,0 +1,26 @@
+using System;
+
+namespace SmartSchool.API.v2.Dtos
+{
+    /// <summary>
+    /// Este � o DTO De Aluno Para Registrar
+    /// </summary>
+    public class AlunoRegistrarDTO
+    {
+        /// <summary>
+        /// Identificador e Chave Do Banco
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// Chave do Aluno Para Outros Negocios Na Institui��o
+        /// </summary>
+        public int Matricula { get; set; }
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string Telefone { get; set; }
+        public DateTime DataNasc { get; set; }
+        public DateTime DataIni { get; set; } = DateTime.Now;
+        public DateTime? DataFim { get; set; } = null;
+        public bool Ativo { get; set; } = true;
+    }
+}
